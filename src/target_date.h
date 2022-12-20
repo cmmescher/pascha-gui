@@ -19,7 +19,7 @@ class TargetDate : public CalculationMethodDecorator
   Date calculate(Year) const override;
 
  private:
-  std::int64_t m_shift_amount;
+  std::int64_t m_shift_amount{};
   void shift(std::int64_t, Date&) const;
 }; // class TargetDate
 
