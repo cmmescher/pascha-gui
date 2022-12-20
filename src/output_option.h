@@ -17,14 +17,6 @@ class OutputOption : public CalculationMethodDecorator
   virtual ~OutputOption() = default;
 }; // class OutputOption
 
-class ByzantineDate : public OutputOption
-{
- public:
-  ByzantineDate(std::unique_ptr<ICalculationMethod> calculation_method)
-    : OutputOption(std::move(calculation_method)) {}
-  Date calculate(Year) const override;
-}; // class ByzantineDate
-
 } // namespace pascha
 
 #endif // !PASCHA_OUTPUT_OPTION_H
