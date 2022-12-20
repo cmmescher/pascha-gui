@@ -22,7 +22,7 @@ class IObservable
   // Used to notify number of day updates from the model.
   virtual void notify(Days) = 0;
   // Used to notify string messages, such as errors.
-  virtual void notify(std::string_view) const = 0;
+  virtual void notify(std::string_view) = 0;
 }; // class IObservable
 
 } // namespace pascha
