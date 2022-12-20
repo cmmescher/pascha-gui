@@ -1,8 +1,6 @@
 #include "calendar_conversion.h"
 #include <stdexcept>
 
-using CalcInt = std::int64_t;
-
 // Helper functions for conversion
 namespace
 {
@@ -21,75 +19,9 @@ constexpr CalcInt kJulianMinYear{-5508};
 constexpr CalcInt kRevJulianMinYear{-5508};
 
 // The following functions calculate the Julian Day Number (JDN) from a given
-// calendar date. This is used as a fixed point to convert between calendars
+// calendar date. This is used as a fixed point to convert between calendars.
 
-CalcInt gregorianToJdn(const Date& date)
-{
-  if (date.year > kGregorianMaxYear || date.year < kGregorianMinYear) {
-    throw std::overflow_error("Gregorian year out of range");
-  }
-
-  CalcInt y = date.year;
-  CalcInt m = date.month;
-  CalcInt jdn{};
-
-  // Calculate the number of 400 year cycles
-  CalcInt cycles{};
-  if (y < 0) {
-    cycles = y / 400 - 1;
-    if (y % 400 == 0) {
-      ++cycles;
-    }
-    y = (400 - (-1 * y % 400)) % 400;
-  } else {
-    cycles = y / 400;
-    y = y % 400;
-  }
-
-  // Treat months prior to leap day as if they were in the previous year
-  if (m < 3) {
-    m += 12;
-    --y;
-  }
-
-  // Add contribution from number of leap years
-  if (y < 0 && y % 4 != 0) {
-    jdn = 365 * y + (y / 4 - 1);
-  } else {
-    jdn = 365 * y + (y / 4);
-  }
-
-  // Add contribution from number of months and current day in month
-  jdn = jdn + 153 * (m + 1) / 5 + date.day - 123;
-
-  // Adjustments for leap year differences between Julian and Gregorian
-  // calendars (leap years skipped when divisible by 100 but not by 400)
-  // Adjustments when year is negative (casues off by one problem with modulo
-  // for leap year checks)
-  if (y < 0) {
-    if (y % 100 != 0) {
-      if (y % 400 != 0) {
-        jdn = jdn - (y / 100 - 1) + (y / 400 - 1);
-      } else {
-        jdn = jdn - (y / 100 - 1) + (y / 400);
-      }
-    } else {
-      if (y % 400 != 0) {
-        jdn = jdn - (y / 100) + (y / 400 - 1);
-      } else {
-        jdn = jdn - (y / 100) + (y / 400);
-      }
-    }
-  } else {
-    jdn = jdn - y / 100 + y / 400;
-  }
-
-  // Add base contribution for days prior to 1/1/1
-  // and the total number of unaccounted cycles
-  jdn = jdn + 1721120 + 146097 * cycles;
-
-  return jdn;
-} // gregorianToJdn
+// gregorianToJdn is in the pascha namespace below.
 
 CalcInt julianToJdn(const Date& date)
 {
@@ -386,6 +318,76 @@ void jdnToRevJulian(CalcInt jdn, Date& date)
 namespace pascha
 {
 
+// Calculate the Julian Day Number (JDN) from a given calendar date. This is
+// used as a fixed point to convert between calendars.
+CalcInt gregorianToJdn(const Date& date)
+{
+  if (date.year > kGregorianMaxYear || date.year < kGregorianMinYear) {
+    throw std::overflow_error("Gregorian year out of range");
+  }
+
+  CalcInt y = date.year;
+  CalcInt m = date.month;
+  CalcInt jdn{};
+
+  // Calculate the number of 400 year cycles
+  CalcInt cycles{};
+  if (y < 0) {
+    cycles = y / 400 - 1;
+    if (y % 400 == 0) {
+      ++cycles;
+    }
+    y = (400 - (-1 * y % 400)) % 400;
+  } else {
+    cycles = y / 400;
+    y = y % 400;
+  }
+
+  // Treat months prior to leap day as if they were in the previous year
+  if (m < 3) {
+    m += 12;
+    --y;
+  }
+
+  // Add contribution from number of leap years
+  if (y < 0 && y % 4 != 0) {
+    jdn = 365 * y + (y / 4 - 1);
+  } else {
+    jdn = 365 * y + (y / 4);
+  }
+
+  // Add contribution from number of months and current day in month
+  jdn = jdn + 153 * (m + 1) / 5 + date.day - 123;
+
+  // Adjustments for leap year differences between Julian and Gregorian
+  // calendars (leap years skipped when divisible by 100 but not by 400)
+  // Adjustments when year is negative (casues off by one problem with modulo
+  // for leap year checks)
+  if (y < 0) {
+    if (y % 100 != 0) {
+      if (y % 400 != 0) {
+        jdn = jdn - (y / 100 - 1) + (y / 400 - 1);
+      } else {
+        jdn = jdn - (y / 100 - 1) + (y / 400);
+      }
+    } else {
+      if (y % 400 != 0) {
+        jdn = jdn - (y / 100) + (y / 400 - 1);
+      } else {
+        jdn = jdn - (y / 100) + (y / 400);
+      }
+    }
+  } else {
+    jdn = jdn - y / 100 + y / 400;
+  }
+
+  // Add base contribution for days prior to 1/1/1
+  // and the total number of unaccounted cycles
+  jdn = jdn + 1721120 + 146097 * cycles;
+
+  return jdn;
+
+} // gregorianToJdn
 Date gregorianToJulian(const Date& date)
 {
   Date julian_date{};
