@@ -15,14 +15,14 @@ struct Date
 
 struct Weeks
 {
-  int value;
-  explicit Weeks(int value) : value(value) {}
+    std::int64_t value;
+  explicit Weeks(std::int64_t value) : value(value) {}
 }; // struct Weeks
 
 struct Days
 {
-  int value;
-  explicit Days(int value) : value(value) {}
+  std::int64_t value;
+  explicit Days(std::int64_t value) : value(value) {}
 }; // struct Days
 
 } // namespace pascha
