@@ -22,7 +22,7 @@ void TargetDate::shift(std::int64_t days, Date& date) const
 
 Date TargetDate::calculate(Year year) const
 {
-  Date date = m_calculation_method->calculate(year);
+  Date date = calculation_method().calculate(year);
   shift(m_shift_amount, date);
   return date;
 }
