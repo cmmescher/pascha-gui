@@ -1,0 +1,12 @@
+AccessModifierOffset: -1
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterClass: true
+    AfterNamespace: true
+    AfterFunction: true
+    AfterEnum: true
+    AfterStruct: true
+    AfterUnion: true
+    AfterExternBlock: true
+IndentWidth: 2
+PointerAlignment: Left
