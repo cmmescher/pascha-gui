@@ -16,13 +16,13 @@ class IObservable
   virtual void addObserver(IObserver&) = 0;
   virtual void removeObserver(IObserver&) = 0;
   // Used to nofify date outputs from the model.
-  virtual void notify(OutputDate) = 0;
+  virtual void notify(OutputDate) const = 0;
   // Used to notify number of week updates from the model.
-  virtual void notify(Weeks) = 0;
+  virtual void notify(Weeks) const = 0;
   // Used to notify number of day updates from the model.
-  virtual void notify(Days) = 0;
+  virtual void notify(Days) const = 0;
   // Used to notify string messages, such as errors.
-  virtual void notify(std::string_view) = 0;
+  virtual void notify(std::string_view) const = 0;
 }; // class IObservable
 
 } // namespace pascha
