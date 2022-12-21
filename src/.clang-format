@@ -1,4 +1,11 @@
 AccessModifierOffset: -1
+AllowShortBlocksOnASingleLine: Always
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortEnumsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: All
+AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortLambdasOnASingleLine: All
+AllowShortLoopsOnASingleLine: true
 BreakBeforeBraces: Custom
 BraceWrapping:
     AfterClass: true
@@ -8,5 +15,6 @@ BraceWrapping:
     AfterStruct: true
     AfterUnion: true
     AfterExternBlock: true
+IndentCaseLabels: true
 IndentWidth: 2
 PointerAlignment: Left
