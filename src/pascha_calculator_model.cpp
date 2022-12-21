@@ -1,5 +1,6 @@
-#include "pascha_calculator_model.h"
-#include "calendar_conversion.h"
+#include <pascha/pascha_calculator_model.h>
+
+#include <pascha/calendar_conversion.h>
 
 #include <ctime>
 #include <limits>

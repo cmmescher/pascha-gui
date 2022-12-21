@@ -1,4 +1,4 @@
-#include "output_options.h"
+#include <pascha/output_options.h>
 
 namespace pascha
 {

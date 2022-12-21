@@ -1,9 +1,9 @@
-#include "gui_controller.h"
+#include <pascha/gui_controller.h>
 
-#include "calculation_methods.h"
-#include "output_calendars.h"
-#include "output_options.h"
-#include "target_dates.h"
+#include <pascha/calculation_methods.h>
+#include <pascha/output_calendars.h>
+#include <pascha/output_options.h>
+#include <pascha/target_dates.h>
 
 namespace pascha
 {
