@@ -16,10 +16,10 @@ using EOutputOption = int;
 struct CalculationOptions
 {
   ECalculationMethod calculation_method;
-  EOutputCalendar output_calendar;
-  Year year;
   ETargetOutput target_output;
+  EOutputCalendar output_calendar;
   std::vector<EOutputOption> options;
+  Year year;
 }; // struct CalculationOptions
 
 
