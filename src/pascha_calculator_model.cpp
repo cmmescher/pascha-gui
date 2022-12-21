@@ -15,6 +15,14 @@ void PaschaCalculatorModel::setCalculationMethod(
 
 void PaschaCalculatorModel::calculate(Year year) const
 {
+  using namespace std::literals; // for sv
+
+  if (!m_calculation_method)
+  {
+    notify("No calculation method set!"sv);
+    return;
+  }
+
   try {
     Date date = m_calculation_method->calculate(year);
   } catch (const std::overflow_error& e) {
@@ -24,6 +32,14 @@ void PaschaCalculatorModel::calculate(Year year) const
 
 void PaschaCalculatorModel::daysUntil(Year year) const
 {
+  using namespace std::literals; // for sv
+
+  if (!m_calculation_method)
+  {
+    notify("No calculation method set!"sv);
+    return;
+  }
+
   try {
     CalcInt dateJdn{gregorianToJdn(m_calculation_method->calculate(year))};
 
@@ -45,6 +61,14 @@ void PaschaCalculatorModel::weeksBetween(
     Year year, std::unique_ptr<ICalculationMethod> method1,
     std::unique_ptr<ICalculationMethod> method2) const
 {
+  using namespace std::literals; // for sv
+
+  if (!method1 || !method2)
+  {
+    notify("No calculation method set!"sv);
+    return;
+  }
+
   try {
     CalcInt date1Jdn{gregorianToJdn(method1->calculate(year))};
     CalcInt date2Jdn{gregorianToJdn(method2->calculate(year))};
