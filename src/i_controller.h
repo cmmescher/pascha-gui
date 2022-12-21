@@ -11,10 +11,13 @@ namespace pascha
 class IController
 {
  public:
-  IController(ICalculatorModel& model);
   virtual ~IController();
   // Calculate the output using the model with the given options.
   virtual void calculate(const CalculationOptions& options) const = 0;
+  // Add a view to the controller.
+  virtual void addView(IView&) = 0;
+  // Remove a view from the controller.
+  virtual void removeView(IView&) = 0;
   // Start the view.
   virtual void start() = 0;
 }; // class IController
