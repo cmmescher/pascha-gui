@@ -34,18 +34,6 @@ enum {
 
 } // namespace ECalculationMethod
 
-namespace e_output_calendar
-{
-
-enum {
-  julian = 0,
-  gregorian,
-  rev_julian,
-  last, // for extentions
-}; // enum
-
-} // namespace e_output_calendar
-
 namespace e_target_date
 {
 
@@ -64,6 +52,18 @@ enum {
 }; // enum
 
 } // namespace e_target_date
+
+namespace e_output_calendar
+{
+
+enum {
+  julian = 0,
+  gregorian,
+  rev_julian,
+  last, // for extentions
+}; // enum
+
+} // namespace e_output_calendar
 
 namespace e_output_option
 {
