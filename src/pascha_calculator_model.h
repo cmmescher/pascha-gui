@@ -10,6 +10,10 @@ class PaschaCalculatorModel : public ICalculatorModel
 {
  public:
   PaschaCalculatorModel() = default;
+  PaschaCalculatorModel(const PaschaCalculatorModel&) = delete;
+  PaschaCalculatorModel(PaschaCalculatorModel&&) = delete;
+  PaschaCalculatorModel& operator=(const PaschaCalculatorModel&) = delete;
+  PaschaCalculatorModel& operator=(PaschaCalculatorModel&&) = delete;
   virtual ~PaschaCalculatorModel() = default;
 
   virtual void
