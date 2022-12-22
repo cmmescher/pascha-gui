@@ -38,9 +38,7 @@ CalcInt julianToJdn(const Date& date)
   CalcInt cycles{};
   if (y < 0) {
     cycles = y / 4 - 1;
-    if (y % 4 == 0) {
-      ++cycles;
-    }
+    if (y % 4 == 0) { ++cycles; }
     y = (4 - (-1 * y % 4)) % 4;
   } else {
     cycles = y / 4;
@@ -95,23 +93,17 @@ CalcInt revJulianToJdn(const Date& date)
 
   // Skip leap years divisible by 100
   CalcInt jdn1{y / 100};
-  if (y < 0 && y % 100 != 0) {
-    --jdn1;
-  }
+  if (y < 0 && y % 100 != 0) { --jdn1; }
 
   // Retain leap year when 200 remainder after dividing by 900
   CalcInt jdn2i{date.year + 300};
   CalcInt jdn2{jdn2i / 900};
-  if (jdn2i < 0 && jdn2i % 900 != 0) {
-    --jdn2;
-  }
+  if (jdn2i < 0 && jdn2i % 900 != 0) { --jdn2; }
 
   // Retain leap year when 600 remainder after dividing by 900
   CalcInt jdn3i{date.year + 700};
   CalcInt jdn3{jdn3i / 900};
-  if (jdn3i < 0 && jdn3i % 900 != 0) {
-    --jdn3;
-  }
+  if (jdn3i < 0 && jdn3i % 900 != 0) { --jdn3; }
 
   // Add contribution from previous skipped and retained leap years
   jdn = jdn - jdn1 + jdn2 + jdn3;
@@ -119,9 +111,7 @@ CalcInt revJulianToJdn(const Date& date)
   // Add contribution from number of months and current day in month
   CalcInt jdn4i{153 * (m + 1)};
   CalcInt jdn4{jdn4i / 5};
-  if (jdn4i < 0 && jdn4i % 5 != 0) {
-    --jdn4;
-  }
+  if (jdn4i < 0 && jdn4i % 5 != 0) { --jdn4; }
   jdn = jdn + jdn4 + date.day - 123;
 
   // Add base contribution for days prior to 1/1/1
@@ -147,9 +137,7 @@ void jdnToGregorian(CalcInt jdn, Date& date)
   CalcInt cycles{};
   if (day < 0) {
     cycles = day / 146097 - 1;
-    if (day % 146097 == 0) {
-      ++cycles;
-    }
+    if (day % 146097 == 0) { ++cycles; }
     day = (146097 - (-1 * day % 146097)) % 146097;
   } else {
     cycles = day / 146097;
@@ -202,9 +190,7 @@ void jdnToJulian(CalcInt jdn, Date& date)
   CalcInt cycles{};
   if (day < 0) {
     cycles = day / 1461 - 1;
-    if (day % 1461 == 0) {
-      ++cycles;
-    }
+    if (day % 1461 == 0) { ++cycles; }
     day = (1461 - (-1 * day % 1461)) % 1461;
   } else {
     cycles = day / 1461;
@@ -256,48 +242,34 @@ void jdnToRevJulian(CalcInt jdn, Date& date)
   // Base number of leap days
   CalcInt ai{9 * day + 2};
   CalcInt a{ai / 328718};
-  if (ai < 0 && ai % 328718 != 0) {
-    --a;
-  }
+  if (ai < 0 && ai % 328718 != 0) { --a; }
 
   // Account for including years with remainder of 200 after division by 900
   CalcInt a2{(a + 3) / 9};
-  if (a < -3 && a % 9 != -3) {
-    --a2;
-  }
+  if (a < -3 && a % 9 != -3) { --a2; }
 
   // Account for including years with remainder of 600 after division by 900
   CalcInt a3{(a + 7) / 9};
-  if (a < -7 && a % 9 != -7) {
-    --a3;
-  }
+  if (a < -7 && a % 9 != -7) { --a3; }
   day = day + a - a2 - a3;
 
   // Calculating number of years contained in current day value
   // and removing their contribution from day
   CalcInt yeari{4 * day + 3};
   year = yeari / 1461;
-  if (yeari < 0 && yeari % 1461 != 0) {
-    --year;
-  }
+  if (yeari < 0 && yeari % 1461 != 0) { --year; }
   CalcInt y{1461 * year / 4};
-  if (year < 0 && 1461 * year % 4 != 0) {
-    --y;
-  }
+  if (year < 0 && 1461 * year % 4 != 0) { --y; }
   day = day - y;
 
   // Calculating number of months contained in current day value
   // and removing their contribution from day
   CalcInt monthi{5 * day + 2};
   month = monthi / 153;
-  if (monthi < 0 && monthi % 153 != 0) {
-    --month;
-  }
+  if (monthi < 0 && monthi % 153 != 0) { --month; }
   CalcInt day2i{153 * month + 2};
   CalcInt day2{day2i / 5};
-  if (day2i < 0 && day2i % 5 != 0) {
-    --day2;
-  }
+  if (day2i < 0 && day2i % 5 != 0) { --day2; }
   day = day - day2 + 1;
 
   // Adjusting month and year values to have year start in january
@@ -335,9 +307,7 @@ CalcInt gregorianToJdn(const Date& date)
   CalcInt cycles{};
   if (y < 0) {
     cycles = y / 400 - 1;
-    if (y % 400 == 0) {
-      ++cycles;
-    }
+    if (y % 400 == 0) { ++cycles; }
     y = (400 - (-1 * y % 400)) % 400;
   } else {
     cycles = y / 400;
