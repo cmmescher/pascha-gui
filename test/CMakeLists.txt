@@ -6,7 +6,9 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(catch)
 # Adds Catch2::Catch2
 
-add_executable(tests tests.cpp)
+add_executable(
+  tests
+  calendar_conversion_test.cpp)
 
 target_compile_features(tests PRIVATE cxx_std_20)
 
