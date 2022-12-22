@@ -359,6 +359,7 @@ CalcInt gregorianToJdn(const Date& date)
   return jdn;
 
 } // gregorianToJdn
+
 Date gregorianToJulian(const Date& date)
 {
   Date julian_date{};
