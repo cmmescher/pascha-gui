@@ -6,8 +6,6 @@
 namespace pascha
 {
 
-using CalcInt = std::int64_t;
-
 CalcInt gregorianToJdn(const Date& date);
 Date gregorianToJulian(const Date& date);
 Date julianToGregorian(const Date& date);

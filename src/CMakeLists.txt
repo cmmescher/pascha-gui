@@ -3,13 +3,15 @@ file(GLOB HEADER_LIST "${pascha-gtk_SOURCE_DIR}/src/*.hpp")
 add_library(
   libpascha
   calculation_method_decorator.cpp
+  calculation_methods.cpp
   calendar_conversion.cpp
   gui_controller.cpp
   output_calendars.cpp
   output_options.cpp
   pascha_calculator_model.cpp
   target_date.cpp
-  ${HEADER_LIST})
+  ${HEADER_LIST}
+)
 
 target_include_directories(libpascha PUBLIC ../include)
 

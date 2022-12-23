@@ -8,7 +8,9 @@ FetchContent_MakeAvailable(catch)
 
 add_executable(
   tests
-  calendar_conversion_test.cpp)
+  calendar_conversion_test.cpp
+  calculation_methods_test.cpp
+)
 
 target_compile_features(tests PRIVATE cxx_std_20)
 
