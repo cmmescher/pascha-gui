@@ -24,7 +24,7 @@ class PaschaCalculatorModel : public ICalculatorModel
                             std::unique_ptr<ICalculationMethod>) const override;
   virtual void addObserver(IObserver&) override;
   virtual void removeObserver(IObserver&) override;
-  virtual void notify(const OutputDate&) const override;
+  virtual void notify(const Date&) const override;
   virtual void notify(Weeks) const override;
   virtual void notify(Days) const override;
   virtual void notify(std::string_view) const override;

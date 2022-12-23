@@ -90,7 +90,7 @@ void PaschaCalculatorModel::removeObserver(IObserver& observer)
   std::erase(m_observers, &observer);
 } // PaschaCalculatorModel::removeObserver
 
-void PaschaCalculatorModel::notify(const OutputDate& date) const
+void PaschaCalculatorModel::notify(const Date& date) const
 {
   for (IObserver* observer : m_observers) {
     observer->update(date);

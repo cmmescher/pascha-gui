@@ -16,7 +16,7 @@ class IObservable
   virtual void addObserver(IObserver&) = 0;
   virtual void removeObserver(IObserver&) = 0;
   // Used to nofify date outputs from the model.
-  virtual void notify(const OutputDate&) const = 0;
+  virtual void notify(const Date&) const = 0;
   // Used to notify number of week updates from the model.
   virtual void notify(Weeks) const = 0;
   // Used to notify number of day updates from the model.
