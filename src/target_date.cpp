@@ -1,18 +1,18 @@
 #include "pascha/target_date.h"
 
 #include <ctime>
+#include <iostream>
 
 namespace pascha
 {
 
-void TargetDate::shift(std::int64_t days, Date& date) const
+void TargetDate::shift(int days, Date& date) const
 {
   std::tm t{};
   t.tm_year = date.year - 1900;
   t.tm_mon = date.month - 1;
-  t.tm_mday = date.day;
+  t.tm_mday = date.day + days;
 
-  t.tm_mday += days;
   std::mktime(&t);
 
   date.year = t.tm_year + 1900;

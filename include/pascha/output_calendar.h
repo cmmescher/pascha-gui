@@ -12,8 +12,8 @@ namespace pascha
 class OutputCalendar : public CalculationMethodDecorator
 {
  public:
-  OutputCalendar(std::unique_ptr<ICalculationMethod> calculation_method)
-    : CalculationMethodDecorator(std::move(calculation_method)) {}
+  OutputCalendar(std::shared_ptr<ICalculationMethod> calculation_method)
+    : CalculationMethodDecorator{calculation_method} {}
   virtual ~OutputCalendar() = default;
 }; // class OutputCalendar
 

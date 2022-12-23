@@ -12,8 +12,8 @@ namespace pascha
 class OutputOption : public CalculationMethodDecorator
 {
  public:
-  OutputOption(std::unique_ptr<ICalculationMethod> calculation_method)
-    : CalculationMethodDecorator(std::move(calculation_method)) {}
+  OutputOption(std::shared_ptr<ICalculationMethod> calculation_method)
+    : CalculationMethodDecorator{calculation_method} {}
   virtual ~OutputOption() = default;
 }; // class OutputOption
 

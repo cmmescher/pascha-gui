@@ -11,7 +11,7 @@ namespace pascha
 class IController
 {
  public:
-  virtual ~IController();
+  virtual ~IController() = default;
   // Calculate the output using the model with the given options.
   virtual void calculate(const CalculationOptions& options) const = 0;
   // Add a view to the controller.

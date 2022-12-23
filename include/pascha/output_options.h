@@ -9,8 +9,9 @@ namespace pascha
 class ByzantineDate : public OutputOption
 {
  public:
-  ByzantineDate(std::unique_ptr<ICalculationMethod> calculation_method)
-    : OutputOption(std::move(calculation_method)) {}
+  ByzantineDate(std::shared_ptr<ICalculationMethod> calculation_method)
+    : OutputOption{calculation_method} {}
+  ~ByzantineDate() = default;
   Date calculate(Year) const override;
 }; // class ByzantineDate
 

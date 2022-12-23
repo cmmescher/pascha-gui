@@ -12,8 +12,8 @@ class CalculationMethodDecorator : public ICalculationMethod
 {
  public:
   CalculationMethodDecorator(std::shared_ptr<ICalculationMethod>);
-  virtual ~CalculationMethodDecorator() = default;
-  virtual Date calculate(Year) const override;
+  virtual ~CalculationMethodDecorator();
+  virtual Date calculate(Year) const = 0;
 
  protected:
   const ICalculationMethod& calculation_method() const
