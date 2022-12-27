@@ -1,7 +1,7 @@
 file(GLOB HEADER_LIST "${pascha-gtk_SOURCE_DIR}/src/*.hpp")
 
 add_library(
-  libpascha
+  pascha-lib
   calculation_method_decorator.cpp
   calculation_methods.cpp
   calendar_conversion.cpp
@@ -13,9 +13,9 @@ add_library(
   ${HEADER_LIST}
 )
 
-target_include_directories(libpascha PUBLIC ../include)
+target_include_directories(pascha-lib PUBLIC ../include)
 
-target_compile_features(libpascha PUBLIC cxx_std_20)
+target_compile_features(pascha-lib PUBLIC cxx_std_20)
 
 # IDE header organization
 source_group(

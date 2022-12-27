@@ -16,8 +16,8 @@ target_compile_features(tests PRIVATE cxx_std_20)
 
 target_link_libraries(
   tests
-  PRIVATE libpascha
+  PRIVATE pascha-lib
           Catch2::Catch2WithMain)
 
 # Register tests
-add_test(NAME libpaschatest COMMAND tests)
+add_test(NAME pascha-libtest COMMAND tests)
