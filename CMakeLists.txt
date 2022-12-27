@@ -16,6 +16,7 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
   # Testing
+  option(BUILD_TESTING "Build tests" OFF)
   include(CTest)
 endif()
 
