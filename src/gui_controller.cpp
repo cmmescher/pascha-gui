@@ -24,7 +24,7 @@ void GuiController::calculate(const CalculationOptions& options) const
   // Check if we are calculating weeks between two methods, before creating the
   // method object.
   // If so, perform the calculation and return.
-  if (options.target_output == e_target_date::weeksBetween) {
+  if (options.target_output == e_target_output::weeksBetween) {
     std::unique_ptr<ICalculationMethod> julian_method{
         new JulianCalculationMethod{}};
     std::unique_ptr<ICalculationMethod> gregorian_method{
@@ -54,42 +54,42 @@ void GuiController::calculate(const CalculationOptions& options) const
   // 2. Get the target date from the options.
   // Default to Pascha.
   switch (options.target_output) {
-    case e_target_date::daysUntil: {
+    case e_target_output::daysUntil: {
       m_model->setCalculationMethod(std::move(method));
       m_model->daysUntil(options.year);
       return;
     }
-    case e_target_date::meatfare: {
+    case e_target_output::meatfare: {
       method =
           std::unique_ptr<ICalculationMethod>{new Meatfare{std::move(method)}};
       break;
     }
-    case e_target_date::cheesefare: {
+    case e_target_output::cheesefare: {
       method = std::unique_ptr<ICalculationMethod>{
           new Cheesefare{std::move(method)}};
       break;
     }
-    case e_target_date::ashWednesday: {
+    case e_target_output::ashWednesday: {
       method = std::unique_ptr<ICalculationMethod>{
           new AshWednesday{std::move(method)}};
       break;
     }
-    case e_target_date::midfeastPentecost: {
+    case e_target_output::midfeastPentecost: {
       method = std::unique_ptr<ICalculationMethod>{
           new MidfeastPentecost{std::move(method)}};
       break;
     }
-    case e_target_date::leavetakingPascha: {
+    case e_target_output::leavetakingPascha: {
       method = std::unique_ptr<ICalculationMethod>{
           new LeavetakingPascha{std::move(method)}};
       break;
     }
-    case e_target_date::ascension: {
+    case e_target_output::ascension: {
       method =
           std::unique_ptr<ICalculationMethod>{new Ascension{std::move(method)}};
       break;
     }
-    case e_target_date::pentecost: {
+    case e_target_output::pentecost: {
       method =
           std::unique_ptr<ICalculationMethod>{new Pentecost{std::move(method)}};
       break;

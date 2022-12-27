@@ -34,7 +34,7 @@ enum {
 
 } // namespace ECalculationMethod
 
-namespace e_target_date
+namespace e_target_output
 {
 
 enum {
