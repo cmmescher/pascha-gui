@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.12...3.25)
 
 project(
-  pascha-gtk
+  pascha-gui
   VERSION 0.1
-  LANGUAGES CXX)
+  LANGUAGES CXX
+)
 
 # Only in main project
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
@@ -20,6 +21,7 @@ endif()
 
 include(FetchContent)
 
+# Build library
 add_subdirectory(src)
 
 # Test only in main project
@@ -27,3 +29,8 @@ if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME OR PASCHA_GTK_BUILD_TESTING)
     AND BUILD_TESTING)
   add_subdirectory(test)
 endif()
+
+option(USE_SYSTEM_WX "Use system wxWidgets" ON)
+add_subdirectory(extern)
+add_subdirectory(app)
+
