@@ -26,6 +26,7 @@ void PaschaCalculatorModel::calculate(Year year) const
 
   try {
     Date date = m_calculation_method->calculate(year);
+    notify(date);
   } catch (const std::overflow_error& e) {
     notify(e.what());
   }

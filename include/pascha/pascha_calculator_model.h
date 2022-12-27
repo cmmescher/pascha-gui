@@ -3,6 +3,8 @@
 
 #include "i_calculator_model.h"
 #include <vector>
+#include <memory>
+
 namespace pascha
 {
 
