@@ -6,6 +6,7 @@
 #include "wx/wx.h"
 
 #include <memory>
+#include <string>
 
 namespace pascha
 {
@@ -19,6 +20,8 @@ class App : public wxApp
   wxGuiView* m_view{};
   std::unique_ptr<ICalculatorModel> m_model{};
   std::unique_ptr<IController> m_controller{};
+
+  wxGuiView* makeView();
 }; // class App
 
 } // namespace pascha

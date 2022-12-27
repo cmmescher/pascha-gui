@@ -18,9 +18,11 @@ target_sources(
   PRIVATE
   app.cpp
   wxGuiView.cpp
+  config_io.cpp
   app.h
   wxGuiView.h
   date_format.h
+  config_io.h
 )
 
 target_link_libraries(${TARGET_NAME} PRIVATE pascha::wx)
