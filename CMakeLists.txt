@@ -26,7 +26,7 @@ include(FetchContent)
 add_subdirectory(src)
 
 # Test only in main project
-if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME OR PASCHA_GTK_BUILD_TESTING)
+if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME OR PASCHA_GUI_BUILD_TESTING)
     AND BUILD_TESTING)
   add_subdirectory(test)
 endif()
