@@ -330,11 +330,13 @@ void wxGuiView::refreshPaschaName()
   if (found == std::string::npos && old_label != "") { // not found
     std::string old_pascha_name =
         m_pascha_name == "Pascha" ? "Easter" : "Pascha";
-    std::string new_label =
-        old_label.replace(old_label.find(old_pascha_name),
-                          old_pascha_name.length(), m_pascha_name);
-    m_output_label->SetLabelText(new_label);
-    m_output_label->Refresh();
+    if (old_label.find(old_pascha_name) != std::string::npos) {
+      std::string new_label =
+          old_label.replace(old_label.find(old_pascha_name),
+                            old_pascha_name.length(), m_pascha_name);
+      m_output_label->SetLabelText(new_label);
+      m_output_label->Refresh();
+    }
   }
 
   m_main_sizer->Layout();
