@@ -17,4 +17,5 @@ BraceWrapping:
     AfterExternBlock: true
 IndentCaseLabels: true
 IndentWidth: 2
+PackConstructorInitializers: NextLine
 PointerAlignment: Left
