@@ -24,7 +24,10 @@ target_sources(
   date_format.h
   config_io.h
 )
-
+# Statically link with mingw
+# if(MINGW)
+#   target_link_libraries (${TARGET_NAME} PRIVATE -static gcc stdc++ winpthread -dynamic)
+# endif()
 target_link_libraries(${TARGET_NAME} PRIVATE pascha::wx)
-target_link_libraries(${TARGET_NAME} PRIVATE pascha::fmt)
+target_link_libraries(${TARGET_NAME} PRIVATE fmt::fmt)
 target_link_libraries(${TARGET_NAME} PRIVATE pascha-lib)
