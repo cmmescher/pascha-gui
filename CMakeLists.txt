@@ -62,3 +62,4 @@ endif()
 add_subdirectory(extern)
 add_subdirectory(app)
 
+install(TARGETS pascha-gui)
