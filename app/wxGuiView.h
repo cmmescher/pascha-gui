@@ -77,8 +77,8 @@ class wxGuiView : public IView, public wxFrame
   std::string m_pascha_name{};
   DateFormat m_date_format{};
   std::string m_date_separator{};
-  std::array<wxString, 2> m_pascha_name_choices{};
-  std::array<wxString, 3> m_date_format_choices{};
+  wxArrayString m_pascha_name_choices{};
+  wxArrayString m_date_format_choices{};
 
   void setTargetOutputChoices(wxComboBox* box);
   void setPaschaName(const wxString& pascha_name);

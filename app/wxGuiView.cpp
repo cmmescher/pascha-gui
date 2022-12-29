@@ -26,9 +26,15 @@ wxGuiView::wxGuiView(IController& controller, ICalculatorModel& model,
       m_pascha_name{pascha_name},
       m_date_format{date_format},
       m_date_separator{date_separator},
-      m_pascha_name_choices{{"Pascha", "Easter"}},
-      m_date_format_choices{{"YMD", "MDY", "DMY"}}
+      m_pascha_name_choices{},
+      m_date_format_choices{}
 {
+  m_pascha_name_choices.Add("Pascha");
+  m_pascha_name_choices.Add("Easter");
+  m_date_format_choices.Add("YMD");
+  m_date_format_choices.Add("MDY");
+  m_date_format_choices.Add("DMY");
+
   m_model->addObserver(*this);
   m_controller->addView(*this);
 
@@ -170,12 +176,11 @@ void wxGuiView::update(std::string_view message)
 
 void wxGuiView::onPaschaNameClicked(wxCommandEvent& evt)
 {
-  wxSingleChoiceDialog dialog(this, "Pascha Name", "Pascha Name", 2,
-                              m_pascha_name_choices.data());
-  auto it = std::find(m_pascha_name_choices.begin(),
-                      m_pascha_name_choices.end(), m_pascha_name);
-  if (it != m_pascha_name_choices.end()) {
-    dialog.SetSelection(std::distance(m_pascha_name_choices.begin(), it));
+  wxSingleChoiceDialog dialog(this, "Pascha Name", "Pascha Name",
+                              m_pascha_name_choices);
+  auto index = m_pascha_name_choices.Index(m_pascha_name);
+  if (index != wxNOT_FOUND) {
+    dialog.SetSelection(index);
   }
   auto selection = dialog.ShowModal();
   if (selection == wxID_CANCEL) {
@@ -188,12 +193,11 @@ void wxGuiView::onPaschaNameClicked(wxCommandEvent& evt)
 
 void wxGuiView::onDateFormatClicked(wxCommandEvent& evt)
 {
-  wxSingleChoiceDialog dialog(this, "Select date format", "Date Format", 3,
-                              m_date_format_choices.data());
-  auto it = std::find(m_date_format_choices.begin(),
-                      m_date_format_choices.end(), getDateFormat());
-  if (it != m_date_format_choices.end()) {
-    dialog.SetSelection(std::distance(m_date_format_choices.begin(), it));
+  wxSingleChoiceDialog dialog(this, "Select date format", "Date Format",
+                              m_date_format_choices);
+  auto index = m_date_format_choices.Index(getDateFormat());
+  if (index != wxNOT_FOUND) {
+    dialog.SetSelection(index);
   }
   auto selection = dialog.ShowModal();
   if (selection == wxID_CANCEL) {
