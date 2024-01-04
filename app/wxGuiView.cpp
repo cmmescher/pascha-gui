@@ -8,7 +8,6 @@
 #include <wx/textfile.h>
 #include <wx/wrapsizer.h>
 
-#include <algorithm>
 #include <chrono>
 #include <ctime>
 #include <string>
@@ -251,16 +250,16 @@ void wxGuiView::onCalculateClicked(wxCommandEvent& evt)
 
   // Get target output
   switch (m_target_output_combobox->GetSelection()) {
-    case 0: options.target_output = e_target_output::pascha; break;
-    case 1: options.target_output = e_target_output::weeksBetween; break;
-    case 2: options.target_output = e_target_output::daysUntil; break;
-    case 3: options.target_output = e_target_output::meatfare; break;
-    case 4: options.target_output = e_target_output::cheesefare; break;
-    case 5: options.target_output = e_target_output::ashWednesday; break;
-    case 6: options.target_output = e_target_output::midfeastPentecost; break;
-    case 7: options.target_output = e_target_output::leavetakingPascha; break;
-    case 8: options.target_output = e_target_output::ascension; break;
-    case 9: options.target_output = e_target_output::pentecost; break;
+    case 0: options.target_outputs.push_back(e_target_output::pascha); break;
+    case 1: options.target_outputs.push_back(e_target_output::weeksBetween); break;
+    case 2: options.target_outputs.push_back(e_target_output::daysUntil); break;
+    case 3: options.target_outputs.push_back(e_target_output::meatfare); break;
+    case 4: options.target_outputs.push_back(e_target_output::cheesefare); break;
+    case 5: options.target_outputs.push_back(e_target_output::ashWednesday); break;
+    case 6: options.target_outputs.push_back(e_target_output::midfeastPentecost); break;
+    case 7: options.target_outputs.push_back(e_target_output::leavetakingPascha); break;
+    case 8: options.target_outputs.push_back(e_target_output::ascension); break;
+    case 9: options.target_outputs.push_back(e_target_output::pentecost); break;
   }
 
   // Get output calendar

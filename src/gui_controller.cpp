@@ -24,7 +24,7 @@ void GuiController::calculate(const CalculationOptions& options) const
   // Check if we are calculating weeks between two methods, before creating the
   // method object.
   // If so, perform the calculation and return.
-  if (options.target_output == e_target_output::weeksBetween) {
+  if (options.target_outputs.front() == e_target_output::weeksBetween) {
     std::unique_ptr<ICalculationMethod> julian_method{
         new JulianCalculationMethod{}};
     std::unique_ptr<ICalculationMethod> gregorian_method{
@@ -53,7 +53,7 @@ void GuiController::calculate(const CalculationOptions& options) const
 
   // 2. Get the target date from the options.
   // Default to Pascha.
-  switch (options.target_output) {
+  switch (options.target_outputs.front()) {
     case e_target_output::daysUntil: {
       m_model->setCalculationMethod(std::move(method));
       m_model->daysUntil(options.year);

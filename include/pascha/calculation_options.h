@@ -16,7 +16,7 @@ using EOutputOption = int;
 struct CalculationOptions
 {
   ECalculationMethod calculation_method;
-  ETargetOutput target_output;
+  std::vector<ETargetOutput> target_outputs;
   EOutputCalendar output_calendar;
   std::vector<EOutputOption> options;
   Year year;
@@ -29,7 +29,7 @@ namespace e_calculation_method
 enum {
   julian = 0,
   gregorian,
-  last, // for extentions
+  last, // for extensions
 }; // enum
 
 } // namespace ECalculationMethod
@@ -48,7 +48,7 @@ enum {
   leavetakingPascha,
   ascension,
   pentecost,
-  last, // for extentions
+  last, // for extensions
 }; // enum
 
 } // namespace e_target_date
@@ -60,7 +60,7 @@ enum {
   julian = 0,
   gregorian,
   rev_julian,
-  last, // for extentions
+  last, // for extensions
 }; // enum
 
 } // namespace e_output_calendar
@@ -70,7 +70,7 @@ namespace e_output_option
 
 enum {
   byzantine = 0,
-  last, // for extentions
+  last, // for extensions
 }; // enum
 
 } // namespace e_output_option

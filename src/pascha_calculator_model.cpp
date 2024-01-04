@@ -3,7 +3,6 @@
 #include "pascha/calendar_conversion.h"
 
 #include <ctime>
-#include <limits>
 
 namespace pascha
 {
