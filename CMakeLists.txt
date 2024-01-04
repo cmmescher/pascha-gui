@@ -63,3 +63,5 @@ add_subdirectory(extern)
 add_subdirectory(app)
 
 install(TARGETS pascha-gui)
+
+add_custom_target(uninstall COMMAND xargs rm -vf < install_manifest.txt)
