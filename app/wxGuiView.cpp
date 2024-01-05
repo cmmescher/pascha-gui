@@ -138,7 +138,7 @@ wxGuiView::~wxGuiView()
 {
   m_model->removeObserver(*this);
   m_controller->removeView(*this);
-}
+} // wxGuiView::~wxGuiView()
 
 void wxGuiView::createView() { this->Show(); } // wxGuiView::createView()
 
