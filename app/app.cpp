@@ -25,7 +25,7 @@
 #include "config_io.h"
 #include "wxGuiView.h"
 
-#include "pascha/gui_controller.h"
+#include "gui_controller.h"
 #include "pascha/pascha_calculator_model.h"
 
 wxIMPLEMENT_APP(pascha::App);

@@ -4,7 +4,6 @@ set(HEADER_LIST
   ${PROJECT_SOURCE_DIR}/include/pascha/calculation_options.h
   ${PROJECT_SOURCE_DIR}/include/pascha/calendar_conversion.h
   ${PROJECT_SOURCE_DIR}/include/pascha/date.h
-  ${PROJECT_SOURCE_DIR}/include/pascha/gui_controller.h
   ${PROJECT_SOURCE_DIR}/include/pascha/i_calculation_method.h
   ${PROJECT_SOURCE_DIR}/include/pascha/i_calculator_model.h
   ${PROJECT_SOURCE_DIR}/include/pascha/i_controller.h
@@ -26,7 +25,6 @@ add_library(
   calculation_method_decorator.cpp
   calculation_methods.cpp
   calendar_conversion.cpp
-  gui_controller.cpp
   output_calendars.cpp
   output_options.cpp
   pascha_calculator_model.cpp

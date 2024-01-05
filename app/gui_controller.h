@@ -1,6 +1,6 @@
 // Copyright (C) 2022, 2024 Christopher Michael Mescher
 //
-// pascha-lib: A library for calculating the date of Pascha (Easter).
+// pascha-gui: A GUI Pascha (Easter) date calculator.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 #ifndef PASCHA_GUI_CONTROLLER_H
 #define PASCHA_GUI_CONTROLLER_H
 
-#include "i_controller.h"
+#include "pascha/i_controller.h"
 namespace pascha
 {
 

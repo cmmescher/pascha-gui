@@ -19,10 +19,12 @@ target_sources(
   app.cpp
   wxGuiView.cpp
   config_io.cpp
+  gui_controller.cpp
   app.h
   wxGuiView.h
   date_format.h
   config_io.h
+  gui_controller.h
 )
 # Statically link with mingw
 # if(MINGW)
