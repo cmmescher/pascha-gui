@@ -21,7 +21,6 @@
 #include "pascha/target_date.h"
 
 #include <ctime>
-#include <iostream>
 
 namespace pascha
 {
