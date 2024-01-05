@@ -1,3 +1,25 @@
+// Copyright (C) 2022, 2024 Christopher Michael Mescher
+//
+// pascha-gui: A GUI Pascha (Easter) date calculator.
+//
+// Version: 1.0 (2024-01-07)
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+//
+// Contact !(echo \<pascha-mescher+faith\>|sed s/\+/./g\;s/\-/@/) for bug
+// reporting.
+
 #include "app.h"
 
 #include "config_io.h"
@@ -38,7 +60,9 @@ wxGuiView* App::makeView()
   }
 
   std::string date_separator = "/";
-  if (!config.date_separator.empty()) { date_separator = config.date_separator; }
+  if (!config.date_separator.empty()) {
+    date_separator = config.date_separator;
+  }
 
   return new wxGuiView{*m_controller, *m_model, pascha_name, date_format,
                        date_separator};
