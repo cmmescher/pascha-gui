@@ -27,7 +27,8 @@
 namespace pascha
 {
 
-struct Configuration {
+struct Configuration
+{
   wxString pascha_name;
   wxString date_format;
   wxString date_separator;
